@@ -1,0 +1,19 @@
+{
+  "name": "jenkins-blue-ocean-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JavierSplvd/jenkins-blue-ocean-tutorial.git"
+  },
+  "author": "javier.sepulveda@autentia.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JavierSplvd/jenkins-blue-ocean-tutorial/issues"
+  },
+  "homepage": "https://github.com/JavierSplvd/jenkins-blue-ocean-tutorial#readme"
+}
