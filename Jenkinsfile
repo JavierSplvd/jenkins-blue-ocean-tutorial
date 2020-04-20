@@ -15,6 +15,8 @@ pipeline {
 
     stage('Test') {
       steps {
+        sh 'ls -lhart'
+        sh 'ls -lhart jenkins/scripts/'
         sh './jenkins/scripts/test.sh'
       }
     }
