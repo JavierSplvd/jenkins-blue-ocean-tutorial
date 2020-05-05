@@ -23,10 +23,11 @@ npm test'''
 
     stage('SonarQube') {
       steps {
-        withSonarQubeEnv(credentialsId: 'admin', installationName: 'sonarqube') {
-          waitForQualityGate(credentialsId: 'admin', webhookSecretId: 'd96aa51ff4e574a4a631f8482adadfe1edceabee', abortPipeline: true)
-        }
-
+        sh '''sonar-scanner \\
+  -Dsonar.projectKey=example-react \\
+  -Dsonar.sources=. \\
+  -Dsonar.host.url=http://localhost:9000 \\
+  -Dsonar.login=d96aa51ff4e574a4a631f8482adadfe1edceabee'''
       }
     }
 
