@@ -23,11 +23,7 @@ npm test'''
 
     stage('SonarQube') {
       steps {
-        sh '''sonar-scanner \\
-  -Dsonar.projectKey=example-react \\
-  -Dsonar.sources=. \\
-  -Dsonar.host.url=http://localhost:9000 \\
-  -Dsonar.login=d96aa51ff4e574a4a631f8482adadfe1edceabee'''
+        withSonarQubeEnv(installationName: 'sonarqube-1', credentialsId: 'd96aa51ff4e574a4a631f8482adadfe1edceabee')
       }
     }
 
