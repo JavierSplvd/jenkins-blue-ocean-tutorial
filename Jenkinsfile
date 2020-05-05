@@ -1,13 +1,15 @@
 pipeline {
   agent {
-    dockerfile {
-      filename 'Dockerfile'
+    docker {
+      image 'sonarsource/sonar-scanner-cli'
     }
 
   }
   stages {
     stage('Build') {
       steps {
+        sh '''curl -sL https://deb.nodesource.com/setup_12.x | bash -
+apt-get install -y nodejs'''
         sh '''
 npx create-react-app example-react'''
       }
