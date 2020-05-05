@@ -9,14 +9,15 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'npm install'
+        sh '''
+npx create-react-app example-react'''
       }
     }
 
     stage('Test') {
       steps {
-        sh 'ls -la'
-        sh './test.sh'
+        sh 'cd example-react'
+        sh 'npm test'
       }
     }
 
