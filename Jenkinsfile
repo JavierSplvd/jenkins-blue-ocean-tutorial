@@ -23,7 +23,7 @@ npm test'''
 
     stage('SonarQube') {
       steps {
-        withSonarQubeEnv(installationName: 'sonarqube-1', credentialsId: 'd96aa51ff4e574a4a631f8482adadfe1edceabee')
+        withSonarQubeEnv 'sonarqube-1'
       }
     }
 
