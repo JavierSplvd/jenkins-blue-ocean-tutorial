@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'apt install curl'
+        sh 'sudo apt install curl'
         sh '''curl -sL https://deb.nodesource.com/setup_12.x | bash -
 apt-get install -y nodejs'''
         sh '''
