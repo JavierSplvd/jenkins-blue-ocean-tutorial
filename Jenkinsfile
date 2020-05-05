@@ -16,9 +16,8 @@ npx create-react-app example-react'''
 
     stage('Test') {
       steps {
-        sh 'cd ./example-react'
-        sh 'ls -la'
-        sh 'npm test'
+        sh '''cd ./example-react
+npm test'''
       }
     }
 
