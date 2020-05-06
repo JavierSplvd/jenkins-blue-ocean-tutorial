@@ -14,7 +14,7 @@ services:
       - jenkins-data:/var/jenkins_home
       # removed :ro at the end
       - jenkins-docker-certs:/certs/client
-      - home:/home
+      - $HOME:/home
     networks:
       - mynet
   dind:
@@ -25,7 +25,7 @@ services:
     volumes:
       - jenkins-docker-certs:/certs/client
       - jenkins-data:/var/jenkins_home
-      - home:/home
+      - $HOME:/home
     networks:
       - mynet
   sonarqube:
