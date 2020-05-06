@@ -18,7 +18,7 @@ services:
     networks:
       - mynet
   dind:
-    image: "docker:dind"
+    image: "docker:19.03.8-dind"
     privileged: true
     environment:
       - "DOCKER_TLS_CERTDIR=/certs"
@@ -29,6 +29,7 @@ services:
     networks:
       - mynet
   sonarqube:
+    privileged: true
     image: "sonarqube"
     ports:
       - "9000:9000"
