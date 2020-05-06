@@ -1,8 +1,8 @@
 pipeline {
   agent {
     docker {
-      image 'node:12'
-      args '-u root:root'
+      image 'sonarsource/sonar-scanner-cli'
+      args '-u root:root --network mynet'
     }
 
   }
