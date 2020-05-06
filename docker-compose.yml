@@ -15,6 +15,8 @@ services:
       # removed :ro at the end
       - jenkins-docker-certs:/certs/client
       - home:/home
+    networks:
+      - mynet
   dind:
     image: "docker:dind"
     privileged: true
@@ -24,13 +26,20 @@ services:
       - jenkins-docker-certs:/certs/client
       - jenkins-data:/var/jenkins_home
       - home:/home
+    networks:
+      - mynet
   sonarqube:
     image: "sonarqube"
     ports:
       - "9000:9000"
+    networks:
+      - mynet
     
 
 volumes:
   jenkins-data:
   jenkins-docker-certs:
   home:
+networks:
+  mynet:
+    driver: bridge
