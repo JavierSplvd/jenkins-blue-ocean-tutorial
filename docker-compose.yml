@@ -2,10 +2,12 @@ version: "3"
 
 services:
   jenkins:
-    image: "jenkinsci/blueocean"
+    image: "jenkinsci/blueocean:1.19.0"
     privileged: true
     environment:
-      - "DOCKER_HOST=tcp://192.168.99.100:2376"
+      - "DOCKER_HOST=tcp://docker:2376"
+      - "DOCKER_CERT_PATH=/certs/client"
+      - "DOCKER_TLS_VERIFY=1"
     ports:
       - "8080:8080"
     volumes:
@@ -15,7 +17,7 @@ services:
       - $HOME:/home
     networks:
       - mynet
-  dind:
+  docker:
     image: "docker:19.03.8-dind"
     privileged: true
     environment:
