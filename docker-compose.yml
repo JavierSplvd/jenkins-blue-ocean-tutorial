@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  jenkins:
+    image: "jenkinsci/blueocean"
+    privileged: true
+    environment:
+      - "DOCKER_HOST=tcp://docker:2376"
+      - "DOCKER_CERT_PATH=/certs/client"
+      - "DOCKER_TLS_VERIFY=1"
+    ports:
+      - "8080:8080"
+    volumes:
+      - jenkins-data:/var/jenkins_home
+      # removed :ro at the end
+      - jenkins-docker-certs:/certs/client
+      - home:/home
+  dind:
+    image: "docker:dind"
+    privileged: true
+    environment:
+      - "DOCKER_TLS_CERTDIR=/certs"
+    volumes:
+      - jenkins-docker-certs:/certs/client
+      - jenkins-data:/var/jenkins_home
+      - home:/home
+  sonarqube:
+    image: "sonarqube"
+    ports:
+      - "9000:9000"
+    
+
+volumes:
+  jenkins-data:
+  jenkins-docker-certs:
+  home:

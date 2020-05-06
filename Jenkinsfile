@@ -32,7 +32,7 @@ npm test'''
           sh '''sonar-scanner \\
   -Dsonar.projectKey=example-react \\
   -Dsonar.sources=. \\
-  -Dsonar.host.url=http://localhost:9000 \\
+  -Dsonar.host.url=http://172.20.0.4:9000 \\
   -Dsonar.login=d96aa51ff4e574a4a631f8482adadfe1edceabee'''
         }
 
