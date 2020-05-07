@@ -8,6 +8,7 @@ services:
       - "DOCKER_HOST=tcp://docker:2376"
       - "DOCKER_CERT_PATH=/certs/client"
       - "DOCKER_TLS_VERIFY=1"
+    - "Dorg.jenkinsci.plugins.durabletask.BourneShellScript.LAUNCH_DIAGNOSTICS=true"
     ports:
       - "8080:8080"
     volumes:
