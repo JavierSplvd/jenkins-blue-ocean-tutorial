@@ -1,9 +1,7 @@
 pipeline {
   agent {
     docker {
-      args '''-Dsonar.host.url=http://sonarqube:9000 -Dsonar.projectKey=123ABCabc
-'''
-      image 'newtmitch/sonar-scanner'
+      image 'node:12'
     }
 
   }
