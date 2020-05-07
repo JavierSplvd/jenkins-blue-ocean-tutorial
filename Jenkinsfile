@@ -32,6 +32,7 @@ npm test'''
           tool 'scanner'
           sh 'echo ${scannerHome}'
           sh 'echo ${scanner}'
+          sh '${scannerHome}/bin/sonar-scanner'
         }
 
       }
