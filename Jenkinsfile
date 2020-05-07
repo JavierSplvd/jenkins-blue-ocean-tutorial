@@ -28,9 +28,8 @@ npm test'''
 
     stage('Sonar') {
       steps {
-        sh 'docker run -e SONAR_HOST_URL=http://sonarqube:9000 -it -v $(pwd)":/usr/src" sonarsource/sonar-scanner-cli'
         withSonarQubeEnv('sonarqube-installation') {
-          sh 'docker run -e SONAR_HOST_URL=http://foo.acme:9000 -it -v "/path/to/project:/usr/src" sonarsource/sonar-scanner-cli'
+          sh 'ls -la'
         }
 
       }
