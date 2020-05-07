@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       args '-u root:root --privileged'
-      image 'sonarsource/sonar-scanner-cli-docker'
+      image 'skilldlabs/sonar-scanner'
     }
 
   }
