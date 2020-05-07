@@ -28,6 +28,7 @@ npm test'''
 
     stage('Sonar') {
       steps {
+        sh 'apt-get install -y maven'
         withSonarQubeEnv('sonarqube-installation') {
           sh 'mvn -Psonar -Dsonar.sourceEncoding=UTF-8 org.sonarsource.scanner.maven:sonar-maven-plugin:3.0.2:sonar'
         }
