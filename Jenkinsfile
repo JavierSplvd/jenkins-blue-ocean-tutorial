@@ -1,8 +1,9 @@
 pipeline {
   agent {
     docker {
-      image 'sonarsource/sonar-scanner-cli'
-      args '-u root:root --privileged'
+      args '''-Dsonar.host.url=http://sonarqube:9000 -Dsonar.projectKey=123ABCabc
+'''
+      image 'newtmitch/sonar-scanner'
     }
 
   }
