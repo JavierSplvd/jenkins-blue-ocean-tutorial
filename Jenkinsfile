@@ -30,6 +30,8 @@ npm test'''
       steps {
         withSonarQubeEnv('sonarqube-installation') {
           tool 'scanner'
+          sh 'cd /var/jenkins_home/tools/hudson.plugins.sonar.SonarRunnerInstallation/scanner/bin/sonar-scanner'
+          sh 'ls -la'
           sh ' /var/jenkins_home/tools/hudson.plugins.sonar.SonarRunnerInstallation/scanner/bin/sonar-scanner -Dsonar.projectKey=123ABCabc -Dsonar.host.url=http://sonarqube:9000'
         }
 
