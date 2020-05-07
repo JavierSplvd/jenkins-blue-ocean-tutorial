@@ -28,9 +28,10 @@ npm test'''
 
     stage('Sonar') {
       steps {
-        def scannerHome = tool 'scanner';
         withSonarQubeEnv('sonarqube-installation') {
-          sh '${scannerHome}'
+          tool 'scanner'
+          sh 'echo ${scannerHome}'
+          sh 'echo ${scanner}'
         }
 
       }
