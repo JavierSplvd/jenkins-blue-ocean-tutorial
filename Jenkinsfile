@@ -1,8 +1,8 @@
 pipeline {
   agent {
     docker {
-      image 'node:12'
-      args '-u root:root --privileged -v /var/jenkins_home/tools/hudson.plugins.sonar.SonarRunnerInstallation/scanner/bin/:/var/jenkins_home/tools/hudson.plugins.sonar.SonarRunnerInstallation/scanner/bin/'
+      image 'SonarSource/sonar-scanner-cli-docker'
+      args '-u root:root --privileged'
     }
 
   }
@@ -30,7 +30,7 @@ npm test'''
       steps {
         withSonarQubeEnv('sonarqube-installation') {
           tool 'scanner'
-          sh 'cd /var/jenkins_home/tools/hudson.plugins.sonar.SonarRunnerInstallation/scanner/bin/sonar-scanner'
+          sh 'find / -name sonar-scanner'
           sh 'ls -la'
           sh ' /var/jenkins_home/tools/hudson.plugins.sonar.SonarRunnerInstallation/scanner/bin/sonar-scanner -Dsonar.projectKey=123ABCabc -Dsonar.host.url=http://sonarqube:9000'
         }
