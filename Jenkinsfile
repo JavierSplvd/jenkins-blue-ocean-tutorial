@@ -28,9 +28,9 @@ npm test'''
 
     stage('Sonar') {
       steps {
-        sh 'apt-get install -y maven'
+        sh 'docker run -e SONAR_HOST_URL=http://sonarqube:9000 -it -v $(pwd)":/usr/src" sonarsource/sonar-scanner-cli'
         withSonarQubeEnv('sonarqube-installation') {
-          sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
+          sh 'docker run -e SONAR_HOST_URL=http://foo.acme:9000 -it -v "/path/to/project:/usr/src" sonarsource/sonar-scanner-cli'
         }
 
       }
