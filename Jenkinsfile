@@ -1,11 +1,5 @@
 pipeline {
-  agent {
-    docker {
-      image 'sonarsource/sonar-scanner-cli'
-      args '-u root:root --privileged -e SONAR_HOST_URL=http://sonarqube:9000'
-    }
-
-  }
+  agent none
   stages {
     stage('Build') {
       steps {
