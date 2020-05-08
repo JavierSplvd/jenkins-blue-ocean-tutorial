@@ -6,9 +6,8 @@ pipeline {
         nodejs('node-tutorial') {
           sh 'type -a npx'
           sh 'type -a npm'
-          sh 'cd /var/jenkins_home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/node-tutorial/bin/'
           sh 'ls -la'
-          sh 'npm create-react-app example-react'
+          sh 'cd /var/jenkins_home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/node-tutorial/bin/npm; npm create-react-app example-react'
         }
 
       }
