@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'node:12'
-      args '-i -v /usr/bin/docker:/usr/bin/docker -v /var/run/docker.sock:/var/run/docker.sock -v /var/jenkins_home:/var/jenkins_home'
+      args '-t -v /usr/bin/docker:/usr/bin/docker -v /var/run/docker.sock:/var/run/docker.sock -v /var/jenkins_home:/var/jenkins_home'
     }
 
   }
