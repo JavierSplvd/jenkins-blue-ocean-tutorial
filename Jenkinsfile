@@ -1,17 +1,21 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      args '-u root:root --privileged'
+      image 'sonarsource/sonar-scanner-cli'
+    }
 
+  }
   stages {
-    stage('NPM build') {
+    stage('Build') {
       steps {
-        nodejs('node-tutorial') {
-          sh 'type -a npx'
-          sh 'type -a npm'
-          sh 'node -v'
-          sh 'npm -v'
-          sh 'export PATH="$PATH:"/usr/local/bin/; npm create-react-app example-react'
-        }
-
+        sh 'ls -la'
+        sh 'ls -la'
+        sh 'apt-get install -y curl'
+        sh '''curl -sL https://deb.nodesource.com/setup_12.x | bash -
+apt-get install -y nodejs'''
+        sh '''
+npx create-react-app example-react'''
       }
     }
 
