@@ -1,8 +1,5 @@
 pipeline {
   agent any
-
-  tools {nodejs "node-tutorial"}
-
   stages {
     stage('Build') {
       steps {
@@ -32,6 +29,9 @@ npm test'''
       }
     }
 
+  }
+  tools {
+    nodejs 'node-tutorial'
   }
   environment {
     CI = 'true'
