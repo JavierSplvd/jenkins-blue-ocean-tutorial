@@ -4,7 +4,6 @@ pipeline {
     stage('Build') {
       steps {
         sh 'ls -la'
-        tool 'node-tutorial'
         nodejs('node-tutorial') {
           sh 'type -a npm'
           sh 'type -a npx'
