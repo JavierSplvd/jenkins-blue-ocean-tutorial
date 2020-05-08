@@ -1,12 +1,14 @@
 pipeline {
-  agent {
-    docker {
-      image 'node:12'
-    }
-
-  }
+  agent none
   stages {
     stage('Build') {
+      agent {
+        docker {
+          args '-i -d -u 0 --userns=host --network jenkins-blue-ocean-tutorial_mynet -v /var/jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock'
+          image 'node:12'
+        }
+
+      }
       steps {
         sh 'ls -la'
         sh 'ls -la'
@@ -18,6 +20,7 @@ npx create-react-app example-react'''
     }
 
     stage('Test') {
+      agent any
       steps {
         sh '''cd ./example-react
 npm test'''
