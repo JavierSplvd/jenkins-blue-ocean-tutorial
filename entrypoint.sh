@@ -6,6 +6,7 @@ declare -a args
 
 add_env_var_as_env_prop() {
   if [ "$1" ]; then
+    echo add_env_var_as_env_prop
     args+=("-D$2=$1")
   fi
 }
@@ -17,7 +18,6 @@ add_env_var_as_env_prop "${SONAR_PROJECT_BASE_DIR:-}" "sonar.projectBaseDir"
 add_env_var_as_env_prop "${SONAR_PROJECT_KEY:-}" "sonar.projectKey"
 
 echo sonar project key must have been assigned
-echo $args
 
 PROJECT_BASE_DIR="$PWD"
 if [ "${SONAR_PROJECT_BASE_DIR:-}" ]; then
