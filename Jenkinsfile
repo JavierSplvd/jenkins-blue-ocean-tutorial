@@ -7,6 +7,7 @@ pipeline {
         tool 'node-tutorial'
         sh '''
 npx create-react-app example-react'''
+        sh 'npm install -g npx'
       }
     }
 
