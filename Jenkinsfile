@@ -4,9 +4,7 @@ pipeline {
     stage('Build') {
       steps {
         sh 'ls -la'
-        sh 'ls -la'
-        sh '''curl -sL https://deb.nodesource.com/setup_12.x | bash -
-apt-get install -y nodejs'''
+        tool 'tutorial-node'
         sh '''
 npx create-react-app example-react'''
       }
