@@ -3,11 +3,11 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'ls -la'
         nodejs('node-tutorial') {
           sh 'type -a npx'
-          sh 'cd /var/jenkins_home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/node-tutorial/bin/'
           sh 'type -a npm'
+          sh 'cd /var/jenkins_home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/node-tutorial/bin/'
+          sh 'ls -la'
           sh 'npm create-react-app example-react'
         }
 
