@@ -6,8 +6,8 @@ pipeline {
         nodejs('node-tutorial') {
           sh 'type -a npx'
           sh 'type -a npm'
+          sh 'which node'
           sh 'node -v'
-          sh 'npm -v'
           sh 'export PATH="$PATH:"/usr/local/bin/; npm create-react-app example-react'
         }
 
