@@ -16,6 +16,9 @@ add_env_var_as_env_prop "${SONAR_USER_HOME:-}" "sonar.userHome"
 add_env_var_as_env_prop "${SONAR_PROJECT_BASE_DIR:-}" "sonar.projectBaseDir"
 add_env_var_as_env_prop "${SONAR_PROJECT_KEY:-}" "sonar.projectKey"
 
+echo sonar project key must have been assigned
+echo $args
+
 PROJECT_BASE_DIR="$PWD"
 if [ "${SONAR_PROJECT_BASE_DIR:-}" ]; then
   PROJECT_BASE_DIR="${SONAR_PROJECT_BASE_DIR}"
