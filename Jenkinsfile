@@ -4,7 +4,7 @@ pipeline {
     stage('Build') {
       steps {
         sh 'ls -la'
-        tool 'tutorial-node'
+        tool 'node-tutorial'
         sh '''
 npx create-react-app example-react'''
       }
