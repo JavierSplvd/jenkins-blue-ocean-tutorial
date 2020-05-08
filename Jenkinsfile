@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'node:12'
-      args '-u root --network host -v /usr/bin/docker:/usr/bin/docker -v /var/run/docker.sock:/var/run/docker.sock -v /var/jenkins_home:/var/jenkins_home'
+      args '-u root --privileged -v /usr/bin/docker:/usr/bin/docker -v /var/run/docker.sock:/var/run/docker.sock -v /var/jenkins_home:/var/jenkins_home'
     }
 
   }
