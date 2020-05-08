@@ -7,6 +7,7 @@ pipeline {
         tool 'node-tutorial'
         nodejs('node-tutorial') {
           sh 'type -a npm'
+          sh 'type -a npx'
           sh 'export PATH="$PATH:"/usr/local/bin/ '
           sh '''
 
