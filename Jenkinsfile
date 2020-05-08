@@ -1,15 +1,15 @@
 pipeline {
   agent any
+
+  tools {nodejs "node-tutorial"}
+
   stages {
     stage('Build') {
       steps {
-        nodejs('node-tutorial') {
-          sh 'type -a npx'
-          sh 'type -a npm'
-          sh 'ls -la'
-          sh 'export PATH="$PATH:"/usr/local/bin/; npm create-react-app example-react'
-        }
-
+        sh 'type -a npx'
+        sh 'type -a npm'
+        sh 'ls -la'
+        sh 'export PATH="$PATH:"/usr/local/bin/; npm create-react-app example-react'
       }
     }
 
