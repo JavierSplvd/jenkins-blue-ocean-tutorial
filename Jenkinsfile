@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   stages {
-    stage('Build') {
+    stage('NPM build') {
       steps {
         nodejs('node-tutorial') {
           sh 'type -a npx'
