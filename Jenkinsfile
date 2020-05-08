@@ -5,9 +5,9 @@ pipeline {
       steps {
         sh 'ls -la'
         tool 'node-tutorial'
+        sh 'npm install -g npx'
         sh '''
 npx create-react-app example-react'''
-        sh 'npm install -g npx'
       }
     }
 
