@@ -6,7 +6,11 @@ pipeline {
         sh 'ls -la'
         tool 'node-tutorial'
         nodejs('node-tutorial') {
-          sh 'npx create-react-app example-react'
+          sh 'export PATH="$PATH:"/usr/local/bin/ '
+          sh '''
+
+
+npx create-react-app example-react'''
         }
 
       }
