@@ -9,10 +9,7 @@ pipeline {
           sh 'type -a npm'
           sh 'type -a npx'
           sh 'export PATH="$PATH:"/usr/local/bin/ '
-          sh '''
-
-
-/var/jenkins_home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/node-tutorial/bin/npm create-react-app example-react'''
+          sh 'npm create-react-app example-react'
         }
 
       }
