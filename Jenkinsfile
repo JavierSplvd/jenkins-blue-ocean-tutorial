@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'sonarsource/sonar-scanner-cli'
-      args '-u root:root --privileged -e SONAR_HOST_URL=http://sonarqube:9000'
+      args '-u root:root --privileged -e SONAR_HOST_URL=http://sonarqube:9000 --network host --entrypoint ./entrypoint.sh'
     }
 
   }
