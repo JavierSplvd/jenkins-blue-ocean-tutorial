@@ -1,8 +1,8 @@
 pipeline {
   agent {
     docker {
-      image 'sonarsource/sonar-scanner-cli'
-      args '-e SONAR_HOST_URL=http://sonarqube:9000 --network host --entrypoint ./entrypoint.sh'
+      image 'node:12'
+      args '--network host'
     }
 
   }
@@ -11,9 +11,8 @@ pipeline {
       steps {
         sh 'ls -la'
         sh 'ls -la'
-        sh 'apt-get update; apt-get install -y curl'
-        sh '''curl -sL https://deb.nodesource.com/setup_12.x | bash -
-apt-get install -y nodejs'''
+        sh 'ls'
+        sh 'ls'
         sh '''
 npx create-react-app example-react'''
       }
@@ -28,13 +27,7 @@ npm test'''
 
     stage('Sonar') {
       steps {
-        withSonarQubeEnv('sonarqube-installation') {
-          tool 'scanner'
-          sh 'find / -name sonar-scanner'
-          sh 'ls -la'
-          sh ' /var/jenkins_home/tools/hudson.plugins.sonar.SonarRunnerInstallation/scanner/bin/sonar-scanner -Dsonar.projectKey=123ABCabc -Dsonar.host.url=http://sonarqube:9000'
-        }
-
+        sh 'docker run -t -u 1000:1000 -u root:root --privileged -e SONAR_HOST_URL=http://sonarqube:9000 -w $(pwd) -v $(pwd):$(pwd):rw,z -v $(pwd)@tmp:$(pwd)@tmp:rw,z --network host --entrypoint ./entrypoint.sh sonarsource/sonar-scanner-cli'
       }
     }
 
