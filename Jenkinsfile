@@ -13,7 +13,7 @@ pipeline {
           sh '''
 
 
-npx create-react-app example-react'''
+/var/jenkins_home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/node-tutorial/bin/npm create-react-app example-react'''
         }
 
       }
