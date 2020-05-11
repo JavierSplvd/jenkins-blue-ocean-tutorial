@@ -9,8 +9,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh '''
-#npx create-react-app example-react'''
+        sh 'npx create-react-app example-react'
         sh 'pwd'
         sh 'ls -la'
       }
@@ -18,8 +17,8 @@ pipeline {
 
     stage('Test') {
       steps {
-        sh '''#cd ./example-react
-#npm test'''
+        sh '''cd ./example-react
+npm test'''
       }
     }
 
