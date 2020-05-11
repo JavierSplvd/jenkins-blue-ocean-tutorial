@@ -11,6 +11,8 @@ pipeline {
       steps {
         sh '''
 #npx create-react-app example-react'''
+        sh 'pwd'
+        sh 'ls -la'
       }
     }
 
