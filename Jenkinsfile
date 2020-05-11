@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'node:12'
-      args '-i -d -u 0 --userns=host --network jenkins-blue-ocean-tutorial_mynet -v /var/run/docker.sock:/var/run/docker.sock'
+      args '-i -d -u 0 -w $(pwd) --userns=host --network jenkins-blue-ocean-tutorial_mynet -v /var/run/docker.sock:/var/run/docker.sock'
     }
 
   }
