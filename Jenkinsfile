@@ -16,7 +16,7 @@ pipeline {
 
     stage('Test') {
       steps {
-        sh '''cd ./example-react
+        sh '''#cd ./example-react
 npm test'''
       }
     }
