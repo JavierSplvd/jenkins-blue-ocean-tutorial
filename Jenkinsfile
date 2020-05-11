@@ -9,12 +9,8 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'ls -la'
-        sh 'ls -la'
-        sh 'ls'
-        sh 'ls'
         sh '''
-npx create-react-app example-react'''
+#npx create-react-app example-react'''
       }
     }
 
