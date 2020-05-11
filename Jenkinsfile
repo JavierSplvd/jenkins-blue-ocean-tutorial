@@ -26,8 +26,8 @@ pipeline {
     stage('Sonar') {
       steps {
         sh 'ls -la'
-        sh 'docker run -t -u 1000:1000 -u root:root -w /usr/src/  --privileged --network jenkins-blue-ocean-tutorial_mynet -v $(pwd):/usr/src -e SONAR_HOST_URL=http://sonarqube:9000  --entrypoint pwd sonarsource/sonar-scanner-cli'
-        sh 'docker run -t -u 1000:1000 -u root:root --privileged --network jenkins-blue-ocean-tutorial_mynet -v $(pwd):/usr/src -e SONAR_HOST_URL=http://sonarqube:9000  --entrypoint ./entrypoint.sh sonarsource/sonar-scanner-cli'
+        sh 'docker run -t -u 1000:1000 -u root:root -w /usr/src/  --privileged --network jenkins-blue-ocean-tutorial_mynet -v /var/jenkins_home:/usr/src -e SONAR_HOST_URL=http://sonarqube:9000  --entrypoint pwd sonarsource/sonar-scanner-cli'
+        sh 'docker run -t -u 1000:1000 -u root:root --privileged --network jenkins-blue-ocean-tutorial_mynet -v /var/jenkins_home:/usr/src -e SONAR_HOST_URL=http://sonarqube:9000  --entrypoint ./entrypoint.sh sonarsource/sonar-scanner-cli'
       }
     }
 
