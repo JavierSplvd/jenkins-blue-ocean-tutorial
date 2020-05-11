@@ -2,34 +2,17 @@ version: "3"
 
 services:
   jenkins:
-    image: "jenkinsci/blueocean:1.19.0"
+    user: root
+    image: "jenkinsci/blueocean:1.23.1"
     privileged: true
-    environment:
-      - "DOCKER_HOST=tcp://docker:2376"
-      - "DOCKER_CERT_PATH=/certs/client"
-      - "DOCKER_TLS_VERIFY=1"
     ports:
       - "8080:8080"
     volumes:
-      - jenkins-data:/var/jenkins_home
-      # removed :ro at the end
-      - jenkins-docker-certs:/certs/client
-      - $HOME:/home
+      - ${PWD}/jenkins_home:/var/jenkins_home
+      - /usr/local/bin/docker:/usr/bin/docker
+      - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - mynet
-  docker:
-    image: "docker:19.03.8-dind"
-    privileged: true
-    environment:
-      - "DOCKER_TLS_CERTDIR=/certs"
-    volumes:
-      - jenkins-docker-certs:/certs/client
-      - jenkins-data:/var/jenkins_home
-      - $HOME:/home
-    networks:
-      - mynet
-    ports:
-      - "3000:3000"
   sonarqube:
     privileged: true
     image: "sonarqube"
@@ -38,11 +21,6 @@ services:
     networks:
       - mynet
     
-
-volumes:
-  jenkins-data:
-  jenkins-docker-certs:
-  home:
 networks:
   mynet:
     driver: bridge
