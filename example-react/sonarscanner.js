@@ -7,8 +7,8 @@ sonarqubeScanner(
     options: {
       'sonar.projectName': 'My App',
       'sonar.projectDescription': 'Description for "My App" project...',
-      'sonar.sources': 'dist',
-      'sonar.tests': 'test'
+      'sonar.sources': 'src',
+      'sonar.tests': 'src'
     }
   },
   () => process.exit()
