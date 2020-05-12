@@ -15,7 +15,7 @@ add_env_var_as_env_prop "${SONAR_LOGIN:-}" "sonar.login"
 add_env_var_as_env_prop "${SONAR_PASSWORD:-}" "sonar.password"
 add_env_var_as_env_prop "${SONAR_USER_HOME:-}" "sonar.userHome"
 add_env_var_as_env_prop "${SONAR_PROJECT_BASE_DIR:-}" "sonar.projectBaseDir"
-add_env_var_as_env_prop "123ABCabc" "sonar.projectKey"
+add_env_var_as_env_prop "Example" "sonar.projectKey"
 
 echo sonar project key must have been assigned
 
