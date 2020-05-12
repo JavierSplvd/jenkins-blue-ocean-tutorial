@@ -24,8 +24,6 @@ npm test'''
 
     stage('Sonar') {
       steps {
-        sh 'npm install -g sonarqube-scanner'
-        sh 'sonar-scanner'
         sh 'docker run -t -u root:root --privileged --network jenkins-blue-ocean-tutorial_mynet -v /Users/javier/Documents/Projects/jenkins-blue-ocean-tutorial/jenkins-blue-ocean-tutorial/jenkins_home:/var/jenkins_home -e SONAR_HOST_URL=http://sonarqube:9000 -e SONAR_PROJECT_BASE_DIR=$(pwd) -w $(pwd) --entrypoint ./entrypoint.sh sonarsource/sonar-scanner-cli'
       }
     }
