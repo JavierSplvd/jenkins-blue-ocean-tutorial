@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'npx create-react-app example-react'
+        sh 'cd ./example-react; npm install'
         sh 'pwd'
         sh 'ls -la'
       }
