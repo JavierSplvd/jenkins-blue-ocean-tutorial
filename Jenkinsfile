@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'node:12'
-      args '-i -d -u 0 --userns=host --network jenkins-blue-ocean-tutorial_mynet'
+      args '--network jenkins-blue-ocean-tutorial_mynet'
     }
 
   }
