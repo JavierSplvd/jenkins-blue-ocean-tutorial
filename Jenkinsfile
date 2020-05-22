@@ -24,7 +24,7 @@ pipeline {
     stage('Sonar') {
       steps {
         withSonarQubeEnv('sonarqube') {
-          sh 'docker run -t -u root:root --privileged --network jenkins-blue-ocean-tutorial_mynet -v /Users/javier/Documents/Projects/jenkins-blue-ocean-tutorial/jenkins-blue-ocean-tutorial/jenkins_home:/var/jenkins_home -v /Users/javier/Documents/Projects/jenkins-blue-ocean-tutorial/jenkins-blue-ocean-tutorial/sonar-scanner.properties:/opt/sonar-scanner/conf/sonar-scanner.properties -e SONAR_PROJECT_BASE_DIR=$(pwd) -w $(pwd) sonarsource/sonar-scanner-cli'
+          sh 'docker run -t -u root:root --privileged --network jenkins-blue-ocean-tutorial_mynet -v /Users/javier/Documents/Projects/jenkins-blue-ocean-tutorial/jenkins-blue-ocean-tutorial/jenkins_home:/usr/src -v /Users/javier/Documents/Projects/jenkins-blue-ocean-tutorial/jenkins-blue-ocean-tutorial/sonar-scanner.properties:/opt/sonar-scanner/conf/sonar-scanner.properties -e SONAR_PROJECT_BASE_DIR=/usr/src/workspace sonarsource/sonar-scanner-cli'
         }
 
         waitForQualityGate true
