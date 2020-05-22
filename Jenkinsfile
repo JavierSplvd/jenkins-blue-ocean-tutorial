@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'cd ./example-react; npm install'
+        sh 'cd ./example-react;'
         sh 'pwd'
         sh 'ls -la'
       }
