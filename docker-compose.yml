@@ -4,17 +4,15 @@ services:
   jenkins:
     user: root
     image: "jenkinsci/blueocean:1.23.1"
-    privileged: true
     ports:
       - "8080:8080"
     volumes:
-      - ${PWD}/jenkins_home:/var/jenkins_home
+      - ./jenkins_home:/var/jenkins_home
       - /usr/local/bin/docker:/usr/bin/docker
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - mynet
   sonarqube:
-    privileged: true
     image: "sonarqube"
     ports:
       - "9000:9000"
