@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'cd ./example-react;'
+        sh 'cd ./example-react; npm install'
         sh 'pwd'
         sh 'ls -la'
       }
@@ -17,7 +17,7 @@ pipeline {
 
     stage('Test') {
       steps {
-        sh 'cd ./example-react;'
+        sh 'cd ./example-react; npm run test -- --coverage --watchAll=false'
       }
     }
 
